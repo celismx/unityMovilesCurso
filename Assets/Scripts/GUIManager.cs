@@ -34,9 +34,20 @@ public class GUIManager : MonoBehaviour
         }
     }
 
+    public static GUIManager sharedInstance;
     // Start is called before the first frame update
     void Start()
     {
+
+        if (sharedInstance == null)
+        {
+            sharedInstance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
         score = 0;
         moveCounter = 30;
         movesText.text = "Moves: " + moveCounter;

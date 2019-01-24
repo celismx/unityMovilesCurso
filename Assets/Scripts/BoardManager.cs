@@ -101,7 +101,7 @@ public class BoardManager : MonoBehaviour
     }
 
     private IEnumerator MakeCandiesFall(int x, int yStart,
-                                        float shiftDelay = 0.2f)
+                                        float shiftDelay = 0.05f)
     {
 
         isShifting = true;
@@ -121,6 +121,8 @@ public class BoardManager : MonoBehaviour
 
         for (int i = 0; i < nullCandies; i++)
         {
+            GUIManager.sharedInstance.Score += 10;
+
             yield return new WaitForSeconds(shiftDelay);
             for(int j = 0; j < renderes.Count - 1; j++)
             {
